@@ -1,4 +1,4 @@
-ceeq
+Ceeq
 ====
 
 Ceeq Android Application
