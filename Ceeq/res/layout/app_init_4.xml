@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ee0033"
+    android:orientation="vertical"
+    android:padding="0dp" >
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:background="@drawable/ic_tab_2"
+        android:columnCount="1"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/nextF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_gravity="center"
+            android:layout_row="0"
+            android:text=" Automate Things .."
+            android:textColor="#ee0033"
+            android:textSize="20sp" />
+
+    </GridLayout>
+
+    <LinearLayout
+        android:id="@+id/LinearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginTop="20dp"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        android:padding="8dp" >
+
+        <Switch
+            android:id="@+id/autoBackup"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:text="Auto Backup"
+            android:textColor="#f4f4f4"
+            android:textOff="TURN ON"
+            android:textOn="TURN OFF" />
+
+        <Switch
+            android:id="@+id/autoTrack"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginTop="4dp"
+            android:text="Auto Tracker"
+            android:textColor="#f4f4f4"
+            android:textOff="TURN ON"
+            android:textOn="TURN OFF" />
+
+        <Switch
+            android:id="@+id/remoteAccess"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="4dp"
+            android:layout_weight="0.17"
+            android:text="Remote Access"
+            android:textColor="#f4f4f4"
+            android:textOff="TURN ON"
+            android:textOn="TURN OFF" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="8dp"
+            android:layout_weight="0.63"
+            android:gravity="left"
+            android:text="( Auto Track or Backup might use a bit more of your battery power.\nYou can change these settings inside the application whenever you want. )"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#f4f4f4" />
+
+        <Space
+            android:layout_width="212dp"
+            android:layout_height="15dp" />
+    </LinearLayout>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnCount="1" >
+
+        <Button
+            android:id="@+id/next04"
+            android:layout_width="92dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|bottom"
+            android:layout_marginRight="-8dp"
+            android:onClick="switchView"
+            android:text="Next" />
+
+        <Button
+            android:id="@+id/back04"
+            android:layout_width="92dp"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_gravity="left|bottom"
+            android:layout_marginLeft="-8dp"
+            android:layout_row="0"
+            android:onClick="switchView"
+            android:text="Back" />
+    </GridLayout>
+
+</LinearLayout>

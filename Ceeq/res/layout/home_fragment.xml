@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="108dp"
+        android:layout_gravity="top"
+        android:background="#cc0033"
+        android:measureAllChildren="false" >
+
+        <TextView
+            android:id="@+id/headerTextHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="roboto"
+            android:text="@string/app_welcome"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#f4f4f4"
+            android:textSize="42sp"
+            android:textStyle="bold"
+            android:typeface="sans" />
+
+    </FrameLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f4f4f4" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_vertical"
+            android:gravity="bottom"
+            android:orientation="vertical"
+            android:padding="12dp" >
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="4dp"
+                android:layout_weight="1"
+                android:columnCount="1" >
+
+                <TextView
+                    android:id="@+id/homeDeviceId"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_column="0"
+                    android:layout_gravity="center_horizontal|top"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_row="0"
+                    android:background="#cc0033"
+                    android:gravity="clip_vertical|top|bottom"
+                    android:padding="4dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#f4f4f4"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </GridLayout>
+
+            <Button
+                android:id="@+id/getCurrentStatus"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:background="@drawable/ic_check"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="8dp"
+                android:text="@string/app_status"
+                android:textColor="#fafafa" />
+
+            <Button
+                android:id="@+id/showSecurityStatus"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/ic_uncheck"
+                android:gravity="center_vertical|center_horizontal|left"
+                android:paddingLeft="8dp"
+                android:text="@string/hSecurity"
+                android:textColor="#fafafa" />
+
+            <Button
+                android:id="@+id/showBackupStatus"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/ic_check"
+                android:gravity="center_vertical|center_horizontal|left"
+                android:paddingLeft="8dp"
+                android:text="@string/hBackup"
+                android:textColor="#fafafa" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="1" >
+
+                <Button
+                    android:id="@+id/remoteAccessToggle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left"
+                    android:layout_marginBottom="4dp"
+                    android:background="@drawable/ic_check"
+                    android:gravity="center_vertical|center_horizontal|left"
+                    android:paddingLeft="8dp"
+                    android:text="@string/hRemote"
+                    android:textColor="#fafafa" />
+
+            </GridLayout>
+
+            <Button
+                android:id="@+id/showAppHelp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/ic_help"
+                android:gravity="center_vertical|center_horizontal|left"
+                android:paddingLeft="8dp"
+                android:text="@string/hHelp"
+                android:textColor="#fafafa" />
+
+            <Button
+                android:id="@+id/exitButton"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/ic_exit"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="8dp"
+                android:text="@string/app_exit"
+                android:textColor="#fafafa" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

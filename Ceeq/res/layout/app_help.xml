@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ee0033"
+    android:orientation="vertical"
+    android:padding="0dp" >
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:background="@drawable/ic_tab_2"
+        android:columnCount="1"
+        android:orientation="horizontal" >
+
+        <Space />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_column="0"
+            android:layout_gravity="center"
+            android:layout_row="0"
+            android:text=" Learn the Remote Commands "
+            android:textColor="#ee0033"
+            android:textSize="20sp" />
+
+    </GridLayout>
+
+    <LinearLayout
+        android:id="@+id/LinearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        android:padding="8dp" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="273dp"
+            android:layout_height="wrap_content"
+            android:text="CEEQ ME"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#f4f4f4"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="This will retreive you current mobile phone location details"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#f9f9f9" />
+         
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="273dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="CEEQ ERASE"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#f4f4f4"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="This will securely erase all contacts and messages from the mobile phone."
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#f9f9f9" />
+        
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="273dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="CEEQ NOW"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#f4f4f4"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="This will retrieve current mobile phone details, last 10 call logs, SIM Number"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#f9f9f9" />
+
+       <TextView
+           android:id="@+id/textView1"
+           android:layout_width="273dp"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="8dp"
+           android:text="CEEQ CRY"
+           android:textAppearance="?android:attr/textAppearanceMedium"
+           android:textColor="#f4f4f4"
+           android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="This will sound a loud alarm on the mobile phone."
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#f9f9f9" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="center_horizontal"
+        android:text="Click outside this box to close it."
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#f4f4f4" />
+
+</LinearLayout>

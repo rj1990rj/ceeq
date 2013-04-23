@@ -1,0 +1,57 @@
+<resources>
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme 
+    <style name="Styler" parent="AppBaseTheme">
+        <item name="scrollbarFadeDuration">250</item>
+        <item name="scrollbarDefaultDelayBeforeFade">300</item>
+        <item name="scrollbarSize">10dip</item>
+        <item name="scrollbarThumbHorizontal">@android:drawable/scrollbar_handle_holo_light</item>
+        <item name="scrollbarThumbVertical">@android:drawable/scrollbar_handle_holo_light</item>
+        <item name="scrollbarTrackHorizontal">@null</item>
+        <item name="scrollbarTrackVertical">@null</item>
+        
+        <item name="actionDropDownStyle">@android:style/Widget.Holo.Light.Spinner.DropDown.ActionBar</item>
+        <item name="actionButtonStyle">@android:style/Widget.Holo.Light.ActionButton</item>
+        <item name="actionOverflowButtonStyle">@android:style/Widget.Holo.Light.ActionButton.Overflow</item>
+        <item name="actionModeBackground">@android:drawable/cab_background_top_holo_light</item>
+        <item name="actionModeSplitBackground">@android:drawable/cab_background_bottom_holo_light</item>
+        <item name="actionModeCloseDrawable">@android:drawable/ic_cab_done_holo_light</item>
+        <item name="actionBarTabStyle">@style/Widget.Holo.Light.ActionBar.TabView</item>
+        <item name="actionBarTabBarStyle">@style/Widget.Holo.Light.ActionBar.TabBar</item>
+        <item name="actionBarTabTextStyle">@style/Widget.Holo.Light.ActionBar.TabText</item>
+        <item name="actionModeStyle">@style/Widget.Holo.Light.ActionMode</item>
+        <item name="actionModeCloseButtonStyle">@style/Widget.Holo.Light.ActionButton.CloseMode</item>
+        <item name="android:actionBarStyle">@android:style/Widget.Holo.Light.ActionBar.Solid</item>
+        <item name="actionBarSize">@dimen/action_bar_default_height</item>
+        <item name="actionModePopupWindowStyle">@android:style/Widget.Holo.Light.PopupWindow.ActionMode</item>
+        <item name="actionBarWidgetTheme">@null</item>
+
+        <item name="actionModeCutDrawable">@android:drawable/ic_menu_cut_holo_light</item>
+        <item name="actionModeCopyDrawable">@android:drawable/ic_menu_copy_holo_light</item>
+        <item name="actionModePasteDrawable">@android:drawable/ic_menu_paste_holo_light</item>
+        <item name="actionModeSelectAllDrawable">@android:drawable/ic_menu_selectall_holo_light</item>
+        <item name="actionModeShareDrawable">@android:drawable/ic_menu_share_holo_light</item>
+        <item name="actionModeFindDrawable">@android:drawable/ic_menu_find_holo_light</item>
+        <item name="actionModeWebSearchDrawable">@android:drawable/ic_menu_search_holo_light</item>
+
+        <item name="dividerVertical">?android:attr/listDivider</item>
+        <item name="dividerHorizontal">?android:attr/listDivider</item>
+        <item name="buttonBarStyle">@android:style/Holo.Light.ButtonBar</item>
+        <item name="buttonBarButtonStyle">?android:attr/borderlessButtonStyle</item>
+        <item name="segmentedButtonStyle">@android:style/Holo.Light.SegmentedButton</item> 
+        
+    </style> -->
+
+</resources>

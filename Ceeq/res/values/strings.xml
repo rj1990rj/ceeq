@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Ceeq</string>
+    <string name="app_settings">Settings</string>
+    <string name="app_status">Status</string>
+    <string name="app_welcome">Welcome</string>
+    <string name="app_exit">Exit</string>
+
+    <!-- Tab Titles -->
+    <string name="tabHome">Home</string>
+    <string name="tabBackup">Backup</string>
+    <string name="tabSecurity">Security</string>
+
+    <!-- Button Strings -->
+    <string name="bOneClick">One Click Backup</string>
+    <string name="bRestore">Restore</string>
+    <string name="bInfo">Current Data Information</string>
+    <string name="bAuto">AUTO BACKUP</string>
+    <string name="bDisplay">View Backups</string>
+    <string name="sLocate">Locate Device</string>
+    <string name="sInfo">Current User Information</string>
+    <string name="sLock">Lock</string>
+    <string name="sWipe">Wipe Data</string>
+    <string name="sAuto">AUTO TRACK</string>
+    <string name="sSett">Device Lost Settings</string>
+    <string name="hSecurity">Device Security</string>
+    <string name="hBackup">Backup and Restore</string>
+    <string name="hRemote">Remote Access</string>
+    <string name="hHelp">Help</string>
+
+    <!-- Hint Strings -->
+    <string name="hintLock">Lock the Device</string>
+
+    <!-- Dialog box Strings -->
+    <string name="okayButton">Yes</string>
+    <string name="cancelButton">No</string>
+    <string name="nextButton">Next</string>
+    
+    <string name="termsconditions">Terms &amp; Conditions</string>
+    <string name="group_9_about">Group 9 About</string>
+    <string name="about_us">About Us</string>
+    <string name="group_9"> Group 9 [G9] consists of :\n\nMd. Majid 09BTCSE072\nRachit Mishra 09BTCSE073\nRaj Srivastava 09BTCSE077\nNitesh Tiwari 09BTCSE089\n</string>
+    <string name="title_activity_backup_manager">BackupManager</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_data_manager">DataManager</string>
+    <string name="title_activity_splash">Ceeq</string>
+    <string name="title_activity_initialiser">Initialiser</string>
+
+</resources>

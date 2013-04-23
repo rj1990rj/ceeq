@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="#cc0033"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:background="#f4f4f4"
+        android:padding="12dp"
+        android:text="@string/group_9_about"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#434343" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|top"
+        android:layout_marginBottom="10dp"
+        android:gravity="left"
+        android:hint="@string/about_us"
+        android:padding="12dp"
+        android:text="@string/group_9"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#f4f4f4"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal"
+        android:text="Click outside this box to close it."
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#f4f4f4" />
+
+</LinearLayout>

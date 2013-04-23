@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="#cc0033"
+    android:orientation="vertical" >
+
+    <GridLayout
+        android:layout_width="196dp"
+        android:layout_height="172dp"
+        android:columnCount="1" >
+
+        <NumberPicker
+            android:id="@+id/numberPicker1"
+            android:layout_column="0"
+            android:layout_gravity="left|center_vertical"
+            android:layout_row="0" />
+
+        <ScrollView
+            android:id="@+id/scrollView1"
+            android:layout_width="128dp"
+            android:layout_height="197dp" >
+
+        </ScrollView>
+
+    </GridLayout>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="center_horizontal"
+        android:text="Click outside this box to close it."
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#f4f4f4" />
+
+</LinearLayout>
