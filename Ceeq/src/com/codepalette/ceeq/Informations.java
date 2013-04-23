@@ -7,12 +7,12 @@ import android.telephony.CellLocation;
 import android.telephony.TelephonyManager;
 
 public class Informations {
-	Context context;
+	TelephonyManager tm;
+	
 		public Informations( Context context ){
-			this.context = context;
+			tm = (TelephonyManager)context.getSystemService(Context.TELEPHONY_SERVICE);
 		}
 		
-		TelephonyManager tm = (TelephonyManager)context.getSystemService(Context.TELEPHONY_SERVICE);
 		
 		public String getSimId( ){
 			return  tm.getSimSerialNumber();	
