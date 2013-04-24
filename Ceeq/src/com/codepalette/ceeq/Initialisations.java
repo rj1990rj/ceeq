@@ -73,7 +73,7 @@ public class Initialisations extends Activity {
 			edit = (EditText)findViewById3;
 			String emergency_message = edit.getText().toString();
 			editor.putString("emergencyName",emergency_name);
-			editor.putString("emergencyContact",emergency_number);
+			editor.putString("emergencyNumber",emergency_number);
 			editor.putString("emergencyMessage",emergency_message);
 			editor.commit();
 			setContentView(R.layout.app_init_4);
@@ -99,7 +99,7 @@ public class Initialisations extends Activity {
 			
 		case R.id.back04:
 			String emergencyName = prefs.getString("emergencyName", "Please Enter");
-			String emergencyNumber = prefs.getString("emergencyContact", "Please Enter");
+			String emergencyNumber = prefs.getString("emergencyNumber", "Please Enter");
 			String emergencyMessage = prefs.getString("emergencyMessage", "Please Enter");
 			setContentView(R.layout.app_init_3);
 			EditText t2 = (EditText) findViewById;
@@ -111,23 +111,16 @@ public class Initialisations extends Activity {
 			break;
 			
 		case R.id.next05:
-			setContentView(R.layout.app_init_6);
-			break;
-			
-		case R.id.back05:
-			setContentView(R.layout.app_init_4);
-			break;
-			
-		case R.id.next06:
 			startActivity(new Intent(this, Home.class));
 			editor.putBoolean("appHasInitialised", true);
 			editor.commit();
 			this.finish();
 			break;
 			
-		case R.id.back06:
-			setContentView(R.layout.app_init_5);
+		case R.id.back05:
+			setContentView(R.layout.app_init_4);
 			break;
+			
 		}
 	}
 

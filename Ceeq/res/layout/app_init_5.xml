@@ -120,7 +120,7 @@
             android:layout_gravity="right|bottom"
             android:layout_marginRight="-8dp"
             android:onClick="switchView"
-            android:text="Next" />
+            android:text="Finish" />
 
         <Button
             android:id="@+id/back05"

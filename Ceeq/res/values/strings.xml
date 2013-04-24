@@ -36,7 +36,6 @@
     <string name="okayButton">Yes</string>
     <string name="cancelButton">No</string>
     <string name="nextButton">Next</string>
-    
     <string name="termsconditions">Terms &amp; Conditions</string>
     <string name="group_9_about">Group 9 About</string>
     <string name="about_us">About Us</string>
@@ -47,5 +46,9 @@
     <string name="title_activity_data_manager">DataManager</string>
     <string name="title_activity_splash">Ceeq</string>
     <string name="title_activity_initialiser">Initialiser</string>
+    <string name="title_activity_locker">Locker</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
 
 </resources>

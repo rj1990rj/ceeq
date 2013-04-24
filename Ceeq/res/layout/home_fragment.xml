@@ -71,7 +71,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="4dp"
-                android:background="@drawable/ic_check"
+                android:background="@drawable/ic_uncheck"
                 android:gravity="left|center_vertical"
                 android:paddingLeft="8dp"
                 android:text="@string/app_status"
@@ -95,7 +95,7 @@
                 android:layout_height="60dp"
                 android:layout_marginBottom="4dp"
                 android:layout_weight="1"
-                android:background="@drawable/ic_check"
+                android:background="@drawable/ic_uncheck"
                 android:gravity="center_vertical|center_horizontal|left"
                 android:paddingLeft="8dp"
                 android:text="@string/hBackup"
@@ -107,12 +107,12 @@
                 android:columnCount="1" >
 
                 <Button
-                    android:id="@+id/remoteAccessToggle"
+                    android:id="@+id/remoteAccessStatus"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="left"
                     android:layout_marginBottom="4dp"
-                    android:background="@drawable/ic_check"
+                    android:background="@drawable/ic_uncheck"
                     android:gravity="center_vertical|center_horizontal|left"
                     android:paddingLeft="8dp"
                     android:text="@string/hRemote"
@@ -121,7 +121,7 @@
             </GridLayout>
 
             <Button
-                android:id="@+id/showAppHelp"
+                android:id="@+id/AppHelp"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginBottom="4dp"
@@ -133,7 +133,7 @@
                 android:textColor="#fafafa" />
 
             <Button
-                android:id="@+id/exitButton"
+                android:id="@+id/exitApp"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_weight="1"

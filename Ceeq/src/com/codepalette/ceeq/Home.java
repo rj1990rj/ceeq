@@ -8,6 +8,7 @@ import android.app.AlertDialog;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -36,7 +37,7 @@ public class Home extends FragmentActivity implements ActionBar.TabListener {
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 		deviceId = "Your Device ID is : "+prefs.getString("DEVICE_ID", "Not Available.");
 		setContentView(R.layout.activity_home);
-		getActionBar().setDisplayHomeAsUpEnabled(false);
+		getActionBar().setDisplayHomeAsUpEnabled(true);
 		final ActionBar actionBar = getActionBar();
 		
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
@@ -77,7 +78,7 @@ public class Home extends FragmentActivity implements ActionBar.TabListener {
 			Toast.makeText(getApplicationContext(), "Drawer", Toast.LENGTH_SHORT).show();
 			break;
 		case R.id.menuSettings:
-			//startActivity(new Intent( this, this));
+			startActivity(new Intent( this, Settings.class));
 			break;
 		case R.id.actionHelp:
 			builder.setView(inflater.inflate(R.layout.app_help,null)).create().show();
