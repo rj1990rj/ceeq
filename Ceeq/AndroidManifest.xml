@@ -10,6 +10,7 @@
 
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
     <application
         android:allowBackup="true"
@@ -47,7 +48,21 @@
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
-        
+
+        <service
+            android:name="com.codepalette.ceeq.Services"
+            android:enabled="true"
+            android:exported="true" >
+        </service>
+
+        <receiver
+            android:name="com.codepalette.ceeq.Startup"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter>
+        		 <action android:name="android.intent.action.BOOT_COMPLETED" />
+    		</intent-filter>
+        </receiver>
     </application>
 
 </manifest>

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Switch;
@@ -12,30 +13,41 @@ import android.widget.TextView;
 
 
 public class Initialisations extends Activity {
+	SharedPreferences prefs;
+	SharedPreferences.Editor editor;
+	public Informations ds;
 	private String DEVICE_ID;
 	private String SIM_ID;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.app_init);
-		Informations ds = new Informations( this );
+		ds = new Informations( this );
+		prefs = PreferenceManager.getDefaultSharedPreferences(this);
+		editor = prefs.edit();
+		
+		try{
 		DEVICE_ID = ds.generateRandomId();
 		SIM_ID = ds.getSimId();
+		editor.putString("DEVICE_ID",DEVICE_ID);
+		editor.putString("SIM_ID",SIM_ID);
+		}
+		
+		catch (NumberFormatException e){
+			Log.e("Error : ", "Check SIM ID");
+		}
+		editor.commit();
+		setContentView(R.layout.app_init);
 		TextView deviceId = (TextView) findViewById(R.id.deviceId);
 		deviceId.setText(DEVICE_ID);
 	}
 	
 	public void switchView( View v ){
-		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-		SharedPreferences.Editor editor = preferences.edit();
 		View findViewById = findViewById(R.id.emergency_contact_name);
 		View findViewById2 = findViewById(R.id.emergency_contact_number);
 		View findViewById3 = findViewById(R.id.emergency_message);
 		switch ( v.getId() ) {
 		case R.id.next01:
-			editor.putString("DEVICE_ID",DEVICE_ID);
-			editor.putString("SIM_ID",SIM_ID);
-			editor.commit();
 			setContentView(R.layout.app_init_2);
 			break;
 		case R.id.next02:
@@ -86,9 +98,9 @@ public class Initialisations extends Activity {
 			break;
 			
 		case R.id.back04:
-			String emergencyName = preferences.getString("emergencyName", "Please Enter");
-			String emergencyNumber = preferences.getString("emergencyContact", "Please Enter");
-			String emergencyMessage = preferences.getString("emergencyMessage", "Please Enter");
+			String emergencyName = prefs.getString("emergencyName", "Please Enter");
+			String emergencyNumber = prefs.getString("emergencyContact", "Please Enter");
+			String emergencyMessage = prefs.getString("emergencyMessage", "Please Enter");
 			setContentView(R.layout.app_init_3);
 			EditText t2 = (EditText) findViewById;
 			t2.setText(emergencyName);

@@ -65,7 +65,7 @@
             android:layout_gravity="right|bottom"
             android:layout_marginRight="-8dp"
             android:onClick="switchView"
-            android:text="Finish" />
+            android:text="Start" />
 
         <Button
             android:id="@+id/back06"

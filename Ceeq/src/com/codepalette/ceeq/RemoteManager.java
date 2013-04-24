@@ -22,7 +22,7 @@ public class RemoteManager extends BroadcastReceiver {
 		}
 
 
-		if(smsMessage[0].getMessageBody()== "CEEQ CRY")
+		if(smsMessage[0].getMessageBody().toString().toUpperCase().equals("CEEQ CRY"))
 			Toast.makeText(context, "Ceeq Cry", Toast.LENGTH_LONG).show();
 	}
 }
