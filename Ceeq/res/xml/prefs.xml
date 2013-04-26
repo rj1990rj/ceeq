@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+  <PreferenceCategory
+      android:title="General"
+      android:summary="General Settings" >
+      <SwitchPreference
+          android:title="Show Notification Icon"
+          android:defaultValue="false" />
+      <SwitchPreference
+          android:title="Check for Updates"
+          android:defaultValue="true" />
+      
+  </PreferenceCategory>
+   <PreferenceCategory
+      android:title="Backup Storage Location" 
+      android:summary="Choose a new Backup Location or Service" >
+      <ListPreference
+          android:title="Choose a Backup Location"
+          >
+          
+      </ListPreference>
+      
+  </PreferenceCategory>  
+   <PreferenceCategory
+      android:title="Change Emergency Contact" 
+      android:summary="Change Emergency Contact Information">
+      <EditTextPreference
+          android:title="Change Emergency Contact Name"
+          android:dialogTitle="Enter New Emergency Contact Name"
+          android:positiveButtonText="Save"
+          android:negativeButtonText="Cancel" ></EditTextPreference>
+      <EditTextPreference
+          android:title="Change Emergency Contact Number"
+          android:dialogTitle="Enter New Emergency Contact Number"
+          android:positiveButtonText="Save"
+          android:negativeButtonText="Cancel"
+           ></EditTextPreference>
+      <EditTextPreference
+          android:title="Change Emergency Message"
+          android:dialogTitle="New Emergency Message"
+          android:positiveButtonText="Save"
+          android:negativeButtonText="Cancel" ></EditTextPreference>
+      
+  </PreferenceCategory>  
+   <PreferenceCategory
+      android:title="Support"
+      android:summary="Get Help Online, Mail Us" >
+      <Preference
+          android:title="Help" >
+          <intent 
+          android:action="android.intent.action.VIEW"
+      	  android:data="http://ceeq.me/mobile/help"/>
+      </Preference>
+      <Preference
+          android:title="FAQs on Web" >
+          <intent 
+          android:title="FAQs on Web"
+          android:action="android.intent.action.VIEW"
+      	  android:data="http://ceeq.me/mobile/faqs"/>
+      </Preference>
+  </PreferenceCategory>  
+   <PreferenceCategory
+      android:title="About" >
+      <Preference
+          android:title="About Us" >
+          <intent 
+          android:summary="About Us, Contact Us"
+          android:action="android.intent.action.VIEW"
+      	  android:data="http://ceeq.me/mobile/about"
+      	  />
+      </Preference>
+	<Preference
+          android:title="Terms &amp; Privacy" >
+      <intent 
+          android:title="Terms amp; Privacy"
+          android:action="android.intent.action.VIEW"
+      	  android:data="http://ceeq.me/mobile/termsprivacy"/>
+      </Preference>
+      
+  </PreferenceCategory>    
+
+</PreferenceScreen>
