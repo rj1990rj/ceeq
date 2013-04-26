@@ -4,41 +4,92 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:background="#cc0033"
+    android:background="#f4f4f4"
     android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/textView3"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:background="#f4f4f4"
-        android:padding="12dp"
-        android:text="Ceeq™ About"
+        android:background="#434343"
+        android:gravity="right" >
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:text="About Ceeq"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#f4f4f4" />
+
+        <Button
+            android:id="@+id/dialogExit"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="4dp"
+            android:background="@drawable/ic_exit_dark"
+            android:title="Close" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/ic_launcher_web" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Version 1.0 beta"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#434343" />
 
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
-        android:layout_height="126dp"
-        android:layout_gravity="left"
-        android:hint="About Us"
-        android:padding="12dp"
-        android:text="Ceeq™ application is developed for the final year project by G9 under supervision of project incharge N.K Gupta."
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#f4f4f4"
-        android:textSize="18sp" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:autoLink="web"
+        android:text="http://www.ceeq.me"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#f4f4f4" />
+
+    <ImageView
+        android:id="@+id/ImageView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/ic_horizon_line" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:padding="8dp"
+        android:text="Ceeq helps in keeping your device and data safe with Auto Backups, Cloud Storage &amp; Device Tracking."
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#434343"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="302dp"
-        android:layout_height="78dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
-        android:padding="20dp"
-        android:text="All Rights Reserved © G9."
+        android:padding="4dp"
+        android:text="© Ceeq Inc."
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="#f4f4f4" />
+        android:textColor="#434343" />
 
     <Space
         android:layout_width="wrap_content"
@@ -48,11 +99,11 @@
     <TextView
         android:id="@+id/textView4"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center_horizontal"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:gravity="center_horizontal|bottom"
         android:text="Click outside this box to close it."
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="#f4f4f4" />
+        android:textColor="#434343" />
 
 </LinearLayout>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.codepalette.ceeq"
-    android:versionCode="Beta"
+    android:versionCode="1"
     android:versionName="1.0.0 Beta" >
 
     <uses-sdk
@@ -12,20 +12,14 @@
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name" >
-        <activity
-            android:name="com.codepalette.ceeq.Home"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.Actionbar" >
-        </activity>
         <activity
             android:name="com.codepalette.ceeq.Splash"
             android:label="@string/title_activity_splash"
@@ -33,29 +27,53 @@
             android:theme="@style/Theme.splashstyle" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name="com.codepalette.ceeq.Initialisations"
+            android:name="com.codepalette.ceeq.Home"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Actionbar" >
+        </activity>
+        <activity
+            android:name="com.codepalette.ceeq.Help"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Actionbar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.codepalette.ceeq.Home" />
+        </activity>
+        <activity
+            android:name="com.codepalette.ceeq.Settings"
+            android:label="@string/title_activity_settings"
+            android:theme="@style/android:Theme.Holo.Light" 
+            android:parentActivityName="com.codepalette.ceeq.Home" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.codepalette.ceeq.Home" />
+        </activity>
+        <activity
+            android:name="com.codepalette.ceeq.Initialiser"
             android:label="@string/title_activity_initialiser"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.splashstyle" >
         </activity>
+        <activity
+            android:name="com.codepalette.ceeq.Locker"
+            android:label="@string/title_activity_locker" >
+        </activity>
 
-        <activity android:name="com.codepalette.ceeq.Locker" android:label="@string/title_activity_locker">
-        </activity><receiver
-            android:name="com.codepalette.ceeq.RemoteManager"
+        
+        <receiver
+            android:name="com.codepalette.ceeq.MessageListener"
             android:enabled="true"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
-
-        
-
         <receiver
             android:name="com.codepalette.ceeq.Startup"
             android:enabled="true"
@@ -64,9 +82,10 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
+
         
-        <service 
-            android:name="com.codepalette.ceeq.Services" 
+        <service
+            android:name="com.codepalette.ceeq.Services"
             android:enabled="true" >
         </service>
 

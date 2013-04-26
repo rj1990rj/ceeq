@@ -3,28 +3,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical" xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="108dp"
-        android:layout_gravity="top"
-        android:background="#cc0033"
-        android:measureAllChildren="false" >
-
-        <TextView
-            android:id="@+id/headerTextBackup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="roboto"
-            android:text="@string/tabBackup"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#f4f4f4"
-            android:textSize="42sp"
-            android:textStyle="bold"
-            android:typeface="sans" />
-
-    </FrameLayout>
-
     <ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="match_parent"

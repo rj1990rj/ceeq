@@ -23,7 +23,7 @@
     <string name="sLock">Lock</string>
     <string name="sWipe">Wipe Data</string>
     <string name="sAuto">AUTO TRACK</string>
-    <string name="sSett">Device Lost Settings</string>
+    <string name="sSett">Device Lost Help</string>
     <string name="hSecurity">Device Security</string>
     <string name="hBackup">Backup and Restore</string>
     <string name="hRemote">Remote Access</string>

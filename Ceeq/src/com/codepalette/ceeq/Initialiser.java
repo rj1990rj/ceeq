@@ -12,7 +12,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 
-public class Initialisations extends Activity {
+public class Initialiser extends Activity {
 	SharedPreferences prefs;
 	SharedPreferences.Editor editor;
 	public Informations ds;

@@ -1,30 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="fill_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="108dp"
-        android:layout_gravity="top"
-        android:background="#cc0033"
-        android:measureAllChildren="false" >
-
-        <TextView
-            android:id="@+id/headerTextSecurity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="roboto"
-            android:text="@string/tabSecurity"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#f4f4f4"
-            android:textSize="42sp"
-            android:textStyle="bold"
-            android:typeface="sans" />
-
-    </FrameLayout>
 
     <ScrollView
         android:id="@+id/scrollView1"
@@ -39,59 +17,16 @@
             android:columnCount="1"
             android:padding="8dp" >
 
-            <GridLayout
-                android:layout_width="match_parent"
-                android:layout_height="43dp"
-                android:layout_margin="0dp"
-                android:layout_marginBottom="4dp"
-                android:layout_marginTop="4dp"
-                android:columnCount="1" >
-
-                <TextView
-                    android:id="@+id/autoTrackText"
-                    android:layout_width="134dp"
-                    android:layout_height="38dp"
-                    android:layout_marginLeft="4dp"
-                    android:layout_marginTop="4dp"
-                    android:gravity="center"
-                    android:text="@string/sAuto"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <ImageButton
-                    android:id="@+id/autoTrackSettings"
-                    android:layout_width="94dp"
-                    android:layout_height="44dp"
-                    android:layout_column="0"
-                    android:layout_gravity="right|top"
-                    android:layout_row="0"
-                    android:contentDescription="@string/app_settings"
-                    android:onClick="showSettingsDialog"
-                    android:src="@drawable/ic_setting_light" />
-
-                <ToggleButton
-                    android:id="@+id/autoTrackToggle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="44dp"
-                    android:layout_column="0"
-                    android:layout_gravity="right|top"
-                    android:layout_marginRight="100dp"
-                    android:layout_row="0"
-                    android:text="@string/bAuto"
-                    android:textOff="OFF"
-                    android:textOn="ON" />
-            </GridLayout>
-
             <Button
                 android:id="@+id/getSecurityInfo"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="4dp"
-                android:layout_row="1"
+                android:layout_row="3"
                 android:onClick="securityFragment"
-                android:text="@string/sInfo" />
+                android:text="@string/sInfo"
+                android:textColor="#434343" />
 
             <Button
                 android:id="@+id/locateDevice"
@@ -100,9 +35,10 @@
                 android:layout_column="0"
                 android:layout_gravity="left|top"
                 android:layout_marginBottom="4dp"
-                android:layout_row="3"
+                android:layout_row="4"
                 android:onClick="securityFragment"
-                android:text="@string/sLocate" />
+                android:text="@string/sLocate"
+                android:textColor="#434343" />
 
             <GridLayout
                 android:layout_width="match_parent"
@@ -116,11 +52,12 @@
                     android:layout_gravity="right"
                     android:layout_marginBottom="4dp"
                     android:onClick="securityFragment"
-                    android:text="@string/sWipe" />
+                    android:text="@string/sWipe"
+                    android:textColor="#434343" />
 
                 <Button
                     android:id="@+id/lockDevice"
-                    android:layout_width="148dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="48dp"
                     android:layout_column="0"
                     android:layout_gravity="left"
@@ -128,18 +65,48 @@
                     android:layout_row="0"
                     android:hint="@string/hintLock"
                     android:onClick="securityFragment"
-                    android:text="@string/sLock" />
+                    android:text="@string/sLock"
+                    android:textColor="#434343" />
 
                 <Button
-                    android:id="@+id/lostFoundSettings"
+                    android:id="@+id/lostFoundHelp"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_gravity="center"
                     android:layout_marginBottom="4dp"
                     android:layout_row="2"
                     android:onClick="securityFragment"
-                    android:text="@string/sSett" />
+                    android:text="@string/sSett"
+                    android:textColor="#434343" />
+
             </GridLayout>
+
+            <TextView
+                android:id="@+id/autoTrackText"
+                android:layout_width="134dp"
+                android:layout_height="38dp"
+                android:layout_column="0"
+                android:layout_gravity="left"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_row="0"
+                android:gravity="center"
+                android:text="@string/sAuto"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#434343"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ToggleButton
+                android:id="@+id/autoTrackToggle"
+                android:layout_column="0"
+                android:layout_gravity="right|top"
+                android:layout_row="0"
+                android:hint="Auto Track Switch"
+                android:text="@string/bAuto"
+                android:textColor="#434343"
+                android:textOff="OFF"
+                android:textOn="ON" />
 
         </GridLayout>
 

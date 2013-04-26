@@ -21,25 +21,30 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class Home extends FragmentActivity implements ActionBar.TabListener {
 	
-	static String deviceId;
-	SectionsPagerAdapter mSectionsPagerAdapter;
-	ViewPager mViewPager;
-
+	private static String deviceId;
+	public SectionsPagerAdapter mSectionsPagerAdapter;
+	public ViewPager mViewPager;
+	private AlertDialog.Builder builder;
+	private AlertDialog dialog;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 		deviceId = "Your Device ID is : "+prefs.getString("DEVICE_ID", "Not Available.");
 		setContentView(R.layout.activity_home);
-		getActionBar().setDisplayHomeAsUpEnabled(true);
-		final ActionBar actionBar = getActionBar();
 		
+		getActionBar().setDisplayHomeAsUpEnabled(false);
+		
+		final ActionBar actionBar = getActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
 		mSectionsPagerAdapter = new SectionsPagerAdapter(
@@ -71,26 +76,24 @@ public class Home extends FragmentActivity implements ActionBar.TabListener {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		AlertDialog.Builder builder = new AlertDialog.Builder( this );
+		builder = new AlertDialog.Builder( this );
 		LayoutInflater inflater = this.getLayoutInflater();
 		switch(item.getItemId()){
-		case android.R.id.home:
-			Toast.makeText(getApplicationContext(), "Drawer", Toast.LENGTH_SHORT).show();
-			break;
 		case R.id.menuSettings:
 			startActivity(new Intent( this, Settings.class));
 			break;
 		case R.id.actionHelp:
-			builder.setView(inflater.inflate(R.layout.app_help,null)).create().show();
+			startActivity(new Intent( this, Help.class));
 			break;
 		case R.id.actionExit:
 			this.finish();
 			break;
 		case R.id.menuAbout:
-			builder.setView(inflater.inflate(R.layout.about_dialog,null)).create().show();
+			builder.setView(inflater.inflate(R.layout.about_dialog,null));
+			dialog = builder.create();
+			dialog.show();
 			break;
-		case R.id.menuAboutUs:
-			builder.setView(inflater.inflate(R.layout.aboutus_dialog,null)).create().show();
+		case R.id.menuShare:
 			break;
 			
 		case R.id.menuExit:
@@ -99,6 +102,26 @@ public class Home extends FragmentActivity implements ActionBar.TabListener {
 		return false;
 	}
 	
+	public void closeDialog( View v ){
+		Button dialogExit = (Button)v.findViewById(R.id.dialogExit);
+		dialogExit.setOnClickListener( new OnClickListener()
+	    {
+	        @Override
+	        public void onClick(View v)
+	        {
+	            dialog.dismiss();
+	        }
+	    });
+	}
+	
+	public void homeFragment( View v ){
+		switch ( v.getId()){
+		case R.id.exitApp: 
+			Home.this.finish();
+			break;
+			}
+		}
+		
 	public void backupFragment( View v ){
 		switch ( v.getId()){
 		case R.id.getDataInfo: 
@@ -137,24 +160,11 @@ public class Home extends FragmentActivity implements ActionBar.TabListener {
 		case R.id.wipeDevice:
 			Toast.makeText(this, "Wipe Device", Toast.LENGTH_SHORT).show();
 			break;
-		case R.id.lostFoundSettings:
+		case R.id.lostFoundHelp:
 			Toast.makeText(this, "Lost and Found Settings", Toast.LENGTH_SHORT).show();
 			break;
 		}
 		
-	}
-	
-	public void showSettingsDialog( View v ){
-		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		LayoutInflater inflater = this.getLayoutInflater();
-		switch ( v.getId()){
-		case R.id.autoBackupSettings:
-			Toast.makeText(this, "Auto backup settings", Toast.LENGTH_SHORT).show();
-			break;
-		case R.id.autoTrackSettings: 
-			builder.setView( inflater.inflate(R.layout.set_timer, null)).create().show();
-			break;
-		}
 	}
 	
 	

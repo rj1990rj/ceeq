@@ -3,48 +3,34 @@ package com.codepalette.ceeq;
 import java.util.Locale;
 
 import android.content.Context;
+import android.location.Location;
 import android.location.LocationManager;
 import android.telephony.CellLocation;
 import android.telephony.TelephonyManager;
+import android.util.Log;
 
 public class Informations {
-	Context context;
-	TelephonyManager tm;
-	LocationManager lm;
+	private Context context;
+	private TelephonyManager tm;
+	private LocationManager lm;
 	
 		public Informations( Context context ){
 			this.context = context;
 			tm = (TelephonyManager)context.getSystemService(Context.TELEPHONY_SERVICE);
-			lm = (LocationManager)context.
+			lm = (LocationManager)context.getSystemService(Context.LOCATION_SERVICE);
 		}
 		
+		public Location getLocation( ){
+			return null;
+		}
 		
 		public String getSimId( ){
 			return  tm.getSimSerialNumber();	
 		}
 		
 		public CellLocation getDeviceMobileLocation ( ){
+			Log.e("Cell Location Test",tm.getCellLocation().toString());
 			return  tm.getCellLocation();
-		}
-		
-		public String getSimOperator ( ){
-			return  tm.getSimOperatorName();
-		}
-		
-		public String getSimOperator ( ){
-			return  tm.getSimOperatorName();
-		}
-		
-		public String getSimOperator ( ){
-			return  tm.getSimOperatorName();
-		}
-		
-		public String getSimOperator ( ){
-			return  tm.getSimOperatorName();
-		}
-		
-		public String getSubscriberId ( ){
-			return  tm.getSubscriberId();
 		}
 		
 		public String generateRandomId( ){

@@ -19,11 +19,11 @@ public class Splash extends Activity {
 		}
 		else{
 			setContentView(R.layout.splash);
-			int secondsDelayed = 1;
+			int secondsDelayed = 2;
 	        new Handler().postDelayed(new Runnable() {
 	        		@Override
 	                public void run() {
-	                        startActivity(new Intent(Splash.this, Initialisations.class));
+	                        startActivity(new Intent(Splash.this, Initialiser.class));
 	                        Splash.this.finish();
 	                }
 	        }, secondsDelayed * 1000);

@@ -5,30 +5,33 @@
         android:icon="@drawable/ic_help_dark"
         android:showAsAction="always|withText"
         android:title="Help"/>
+     
+     <item
+        android:id="@+id/menuSettings"
+        android:icon="@drawable/ic_setting_dark"
+        android:showAsAction="always"
+        android:title="Settings"/>
 
     <item
         android:id="@+id/actionExit"
         android:icon="@drawable/action_exit_dark"
         android:showAsAction="always|withText"
         android:title="Exit"/>
-     <item
-        android:id="@+id/menuSettings"
-        android:icon="@drawable/ic_setting_dark"
-        android:showAsAction="always"
-        android:title="Settings"/>
     <item
         android:id="@+id/feedBack"
         android:showAsAction="never"
         android:title="Feedback"/>
      
     <item
+        android:id="@+id/menuShare"
+        android:showAsAction="never"
+        android:title="Share"/>
+    
+    <item
         android:id="@+id/menuAbout"
         android:showAsAction="never"
         android:title="About"/>
-    <item
-        android:id="@+id/menuAboutUs"
-        android:showAsAction="never"
-        android:title="About G9"/>
+
     <item
         android:id="@+id/menuExit"
         android:showAsAction="never"
