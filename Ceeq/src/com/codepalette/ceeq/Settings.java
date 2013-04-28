@@ -34,6 +34,7 @@ public class Settings extends PreferenceActivity {
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
 			getActionBar().setDisplayHomeAsUpEnabled(true);
 		}
+		getActionBar().setTitle("Settings");
 	}
 
 	@Override

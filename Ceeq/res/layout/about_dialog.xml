@@ -31,7 +31,8 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="4dp"
             android:background="@drawable/ic_exit_dark"
-            android:title="Close" />
+            android:title="Close"
+            android:onClick="closeDialog" />
 
     </RelativeLayout>
 

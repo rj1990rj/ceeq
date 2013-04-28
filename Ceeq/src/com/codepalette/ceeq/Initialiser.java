@@ -1,15 +1,21 @@
 package com.codepalette.ceeq;
 
 import android.app.Activity;
+import android.app.admin.DevicePolicyManager;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class Initialiser extends Activity {
@@ -18,6 +24,7 @@ public class Initialiser extends Activity {
 	public Informations ds;
 	private String DEVICE_ID;
 	private String SIM_ID;
+	private static final int ACTIVATION_REQUEST = 73;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +34,8 @@ public class Initialiser extends Activity {
 		editor = prefs.edit();
 		
 		try{
-		DEVICE_ID = ds.generateRandomId();
-		SIM_ID = ds.getSimId();
+		DEVICE_ID = ds.generateDeviceId();
+		SIM_ID = ds.getSIMid();
 		editor.putString("DEVICE_ID",DEVICE_ID);
 		editor.putString("SIM_ID",SIM_ID);
 		}
@@ -53,14 +60,13 @@ public class Initialiser extends Activity {
 		case R.id.next02:
 			EditText edit = (EditText)findViewById(R.id.user_name);
 			String user_name = edit.getText().toString();
-			edit = (EditText)findViewById(R.id.user_email);
-			String user_email = edit.getText().toString();
+			edit = (EditText)findViewById(R.id.user_passcode);
+			String user_passcode = edit.getText().toString();
 			editor.putString("userName",user_name);
-			editor.putString("userEmail",user_email);
+			editor.putString("userPasscode",user_passcode);
 			editor.commit();
 			setContentView(R.layout.app_init_3);
 			break;
-			
 		case R.id.back02:
 			setContentView(R.layout.app_init);
 			break;
@@ -123,5 +129,34 @@ public class Initialiser extends Activity {
 			
 		}
 	}
+	
+	public boolean isDeviceAdminEnabled( ){
+		DevicePolicyManager devicePolicyManager = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
+		ComponentName deviceAdminComponentName = new ComponentName(this, DeviceAdminManager.class);
+	    return devicePolicyManager.isAdminActive(deviceAdminComponentName);
+	}
+
+	public void enableDeviceAdmin( View v){ 
+		Intent intent = new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
+		ComponentName deviceAdminComponentName = new ComponentName(this, DeviceAdminManager.class);
+		intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, deviceAdminComponentName);
+		intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION, "Enabling Device Administration enables all the security features of the application");
+		startActivityForResult(intent,ACTIVATION_REQUEST);
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		switch (requestCode) {
+			case ACTIVATION_REQUEST:
+				if (resultCode == Activity.RESULT_OK) {
+					Toast.makeText(this, "Device Administrator Activation Successful.", Toast.LENGTH_LONG).show();
+				} else {
+					Toast.makeText(this, "Device Administrator Activation Failed.", Toast.LENGTH_LONG).show();
+				}
+				return;
+		}
+		super.onActivityResult(requestCode, resultCode, data);
+	}
+
 
 }

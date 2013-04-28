@@ -4,6 +4,27 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
+	<FrameLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="72dp"
+	    android:layout_gravity="top"
+	    android:background="#cc0033"
+	    android:measureAllChildren="false" >
+
+        <TextView
+            android:id="@+id/headerTextBackup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="roboto"
+            android:text="@string/tabHome"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#f4f4f4"
+            android:textSize="42sp"
+            android:textStyle="bold"
+            android:typeface="sans" />
+
+    </FrameLayout>
     <ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="match_parent"
@@ -40,16 +61,17 @@
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#f4f4f4"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textIsSelectable="true" />
 
             </GridLayout>
 
             <Button
                 android:id="@+id/getCurrentStatus"
+                style="@style/buttonNo"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="4dp"
-                android:background="@drawable/ic_uncheck"
                 android:gravity="left|center_vertical"
                 android:paddingLeft="8dp"
                 android:text="@string/app_status"
@@ -57,11 +79,11 @@
 
             <Button
                 android:id="@+id/showSecurityStatus"
+                style="@style/buttonNo"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginBottom="4dp"
                 android:layout_weight="1"
-                android:background="@drawable/ic_uncheck"
                 android:gravity="center_vertical|center_horizontal|left"
                 android:paddingLeft="8dp"
                 android:text="@string/hSecurity"
@@ -69,11 +91,11 @@
 
             <Button
                 android:id="@+id/showBackupStatus"
+                style="@style/buttonNo"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginBottom="4dp"
                 android:layout_weight="1"
-                android:background="@drawable/ic_uncheck"
                 android:gravity="center_vertical|center_horizontal|left"
                 android:paddingLeft="8dp"
                 android:text="@string/hBackup"
@@ -86,11 +108,11 @@
 
                 <Button
                     android:id="@+id/remoteAccessStatus"
+                    style="@style/buttonNo"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="left"
                     android:layout_marginBottom="4dp"
-                    android:background="@drawable/ic_uncheck"
                     android:gravity="center_vertical|center_horizontal|left"
                     android:paddingLeft="8dp"
                     android:text="@string/hRemote"
@@ -100,14 +122,15 @@
 
             <Button
                 android:id="@+id/exitApp"
+                style="@style/buttonExit"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_weight="1"
-                android:background="@drawable/ic_exit"
                 android:gravity="left|center_vertical"
                 android:paddingLeft="8dp"
                 android:text="@string/app_exit"
-                android:textColor="#fafafa" />
+                android:textColor="#fafafa" 
+                android:onClick="homeFragment"/>
 
         </LinearLayout>
 

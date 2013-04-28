@@ -6,17 +6,18 @@ import java.util.Locale;
 import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.FragmentTransaction;
+import android.app.admin.DevicePolicyManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -24,6 +25,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,13 +36,20 @@ public class Home extends FragmentActivity implements ActionBar.TabListener {
 	public ViewPager mViewPager;
 	private AlertDialog.Builder builder;
 	private AlertDialog dialog;
+	private PreferencesManager pm;
+	private Initialiser isr;
+	private static final int ACTIVATION_REQUEST = 73;
+	private boolean exit = false;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-		deviceId = "Your Device ID is : "+prefs.getString("DEVICE_ID", "Not Available.");
+		pm = new PreferencesManager( this );
+		isr = new Initialiser();
+		deviceId = "Your Device ID is : "+pm.getString("DEVICE_ID");
 		setContentView(R.layout.activity_home);
+		
+		pm = new PreferencesManager( this );
 		
 		getActionBar().setDisplayHomeAsUpEnabled(false);
 		
@@ -117,7 +126,7 @@ public class Home extends FragmentActivity implements ActionBar.TabListener {
 	public void homeFragment( View v ){
 		switch ( v.getId()){
 		case R.id.exitApp: 
-			Home.this.finish();
+			this.finish();
 			break;
 			}
 		}
@@ -147,21 +156,59 @@ public class Home extends FragmentActivity implements ActionBar.TabListener {
 		}
 	
 	public void securityFragment( View v ){
+		final DevicePolicyManager dpm = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
+		builder = new AlertDialog.Builder( this );
+		LayoutInflater inflater = this.getLayoutInflater();
+		DevicePolicyManager devicePolicyManager = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
+		ComponentName deviceAdminComponentName = new ComponentName(this, DeviceAdminManager.class);
 		switch ( v.getId()){
 		case R.id.getSecurityInfo:
-			Toast.makeText(this, "Get Security Data", Toast.LENGTH_SHORT).show();
+			builder.setView(inflater.inflate(R.layout.secure_show,null))
+			.setNegativeButton(R.string.closeButton, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+            		dialog.cancel();
+            	}
+				}).create().show();
 			break;
 		case R.id.locateDevice: 
 			Toast.makeText(this, "Locate Device", Toast.LENGTH_SHORT).show();
 			break;
 		case R.id.lockDevice:
-			Toast.makeText(this, "Lock Device", Toast.LENGTH_SHORT).show();
+			if(devicePolicyManager.isAdminActive(deviceAdminComponentName))
+				dpm.lockNow();
+			else
+				enableDeviceAdmin( v );
 			break;
+			
 		case R.id.wipeDevice:
-			Toast.makeText(this, "Wipe Device", Toast.LENGTH_SHORT).show();
+			if(devicePolicyManager.isAdminActive(deviceAdminComponentName))
+			{
+			builder.setView(inflater.inflate(R.layout.app_wipe,null))
+			.setPositiveButton(R.string.yesButton, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+            	dpm.wipeData(0);
+	            }
+					})
+			.setNegativeButton(R.string.cancelButton, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+            		dialog.cancel();
+            	}
+				}).create().show();
+			}
+			else  
+				enableDeviceAdmin( v );
 			break;
 		case R.id.lostFoundHelp:
-			Toast.makeText(this, "Lost and Found Settings", Toast.LENGTH_SHORT).show();
+			builder.setView(inflater.inflate(R.layout.app_emergency_change,null))
+			.setPositiveButton(R.string.saveButton, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+	            }
+					})
+			.setNegativeButton(R.string.cancelButton, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+            		dialog.cancel();
+            	}
+				}).create().show();
 			break;
 		}
 		
@@ -170,26 +217,23 @@ public class Home extends FragmentActivity implements ActionBar.TabListener {
 	
 	@Override
 	public void onBackPressed() {
-		
-		AlertDialog.Builder builder = new AlertDialog.Builder( this );
-		builder.setTitle("Exit Ceeq");
-		builder.setMessage("Close Application")
-        .setPositiveButton(R.string.okayButton, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-            	Home.this.finish();
-            }
-        })
-        .setNegativeButton(R.string.cancelButton, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-            	dialog.cancel();
-            }
-        }).create().show();
-
+		if( exit ) 
+			Home.this.finish();
+		else {
+			Toast.makeText(getBaseContext(), "Press Back again to Exit.", Toast.LENGTH_SHORT).show();
+			exit = true;
+		}
+			
+	}
+	
+	public void enableDeviceAdmin( View v){ 
+		Intent intent = new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
+		ComponentName deviceAdminComponentName = new ComponentName(this, DeviceAdminManager.class);
+		intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, deviceAdminComponentName);
+		intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION, "Enabling Device Administration enables all the security features of the application");
+		startActivityForResult(intent,ACTIVATION_REQUEST);
 	}
 
-	protected void onFinish( Context context ) {
-		Toast.makeText(context, "Ceeq Closed.", Toast.LENGTH_SHORT).show();
-	}
 
 	@Override
 	public void onTabSelected(ActionBar.Tab tab,
@@ -267,12 +311,28 @@ public class Home extends FragmentActivity implements ActionBar.TabListener {
 	}
 	
 	public static class SecurityFragment extends Fragment {
+		PreferencesManager pm;
 		public SecurityFragment() {
 		}
 
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
 			View rootView = inflater.inflate(R.layout.security_fragment,container, false);
+//			TextView tv = (TextView)rootView.findViewById(R.id.currentName);
+//			tv.setText(pm.getString("userName"));
+//			tv = (TextView)rootView.findViewById(R.id.currentSIMnumber);
+//			tv.setText(pm.getString("userName"));
+//			tv = (TextView)rootView.findViewById(R.id.currentIMSInumber);
+//			tv.setText(pm.getString("userName"));
+//			tv = (TextView)rootView.findViewById(R.id.currentIEMInumber);
+//			tv.setText(pm.getString("userName"));
+//			tv = (TextView)rootView.findViewById(R.id.currentOperatorName);
+//			tv.setText(pm.getString("userName"));
+//			tv = (TextView)rootView.findViewById(R.id.currentOperatorCountry);
+//			tv.setText(pm.getString("userName"));
+//			tv = (TextView)rootView.findViewById(R.id.currentNetworkLoc);
+//			tv.setText(pm.getString("userName"));
+
 			return rootView;
 		}
 	}

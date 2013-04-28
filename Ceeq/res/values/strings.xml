@@ -23,7 +23,7 @@
     <string name="sLock">Lock</string>
     <string name="sWipe">Wipe Data</string>
     <string name="sAuto">AUTO TRACK</string>
-    <string name="sSett">Device Lost Help</string>
+    <string name="sSett">Change Emergency Contact</string>
     <string name="hSecurity">Device Security</string>
     <string name="hBackup">Backup and Restore</string>
     <string name="hRemote">Remote Access</string>
@@ -31,11 +31,22 @@
 
     <!-- Hint Strings -->
     <string name="hintLock">Lock the Device</string>
+    
+    <!-- Case -->
+    <string name="cCry">CRY</string>
+    <string name="cMe">ME</string>
+    <string name="cNow">NOW</string>
+    <string name="cErase">ERASE</string>
 
     <!-- Dialog box Strings -->
-    <string name="okayButton">Yes</string>
-    <string name="cancelButton">No</string>
+    <string name="yesButton">Yes</string>
+    <string name="noButton">No</string>
+    <string name="cancelButton">Cancel</string>
     <string name="nextButton">Next</string>
+    <string name="saveButton">Save</string>
+    <string name="finishButton">Finish</string>
+    <string name="closeButton">Close</string>
+    
     <string name="termsconditions">Terms &amp; Conditions</string>
     <string name="group_9_about">Group 9 About</string>
     <string name="about_us">About Us</string>
@@ -50,5 +61,8 @@
     <string name="title_section1">Section 1</string>
     <string name="title_section2">Section 2</string>
     <string name="title_section3">Section 3</string>
+    <string name="_change_emergency_buddy_">" Change Emergency Buddy "</string>
+    <string name="change_emergency_contact_name">Change Emergency Contact Name</string>
+    <string name="mobile_number">Mobile Number</string>
 
 </resources>

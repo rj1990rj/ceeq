@@ -1,25 +1,21 @@
 package com.codepalette.ceeq;
+
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.preference.PreferenceManager;
 
 public class Splash extends Activity {
-
+	private PreferencesManager pm;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-		boolean appHasInitialised = prefs.getBoolean("appHasInitialised", false);
-		if (appHasInitialised){
-			startActivity(new Intent(this, Home.class));
-			Splash.this.finish();
-		}
-		else{
+		pm = new PreferencesManager( this );
+		boolean appHasInitialised = pm.getBoolean("appHasInitialised");
+		setContentView(R.layout.splash);
+		if (!appHasInitialised){
 			setContentView(R.layout.splash);
-			int secondsDelayed = 2;
+			int secondsDelayed = 1;
 	        new Handler().postDelayed(new Runnable() {
 	        		@Override
 	                public void run() {
@@ -28,7 +24,9 @@ public class Splash extends Activity {
 	                }
 	        }, secondsDelayed * 1000);
 		}
-			
+		else{
+		startActivity(new Intent(this, Home.class));
+		Splash.this.finish();
 		}
-
+	}
 }

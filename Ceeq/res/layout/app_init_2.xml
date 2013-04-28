@@ -1,22 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="fill_parent"
     android:background="#ee0033"
     android:orientation="vertical"
     android:padding="0dp" >
 
     <GridLayout
         android:layout_width="match_parent"
-        android:layout_height="72dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/ic_tab_2"
         android:columnCount="1"
         android:orientation="horizontal" >
 
-        <Space />
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_column="0"
             android:layout_gravity="center"
             android:layout_row="0"
@@ -29,20 +33,22 @@
         android:id="@+id/LinearLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
         android:gravity="bottom"
         android:orientation="vertical"
-        android:padding="8dp" >
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="2dp" >
 
         <Space
             android:layout_width="212dp"
             android:layout_height="15dp" />
 
         <TextView
-            android:id="@+id/textView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="What&apos;s your name ! Buddy :)"
+            android:id="@+id/TextView02"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Enter your name"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="#f4f4f4"
             android:textStyle="bold" />
@@ -50,77 +56,85 @@
         <EditText
             android:id="@+id/user_name"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_height="match_parent"
             android:ems="10"
             android:hint="Enter Your Name"
             android:inputType="textPersonName"
-            android:textSize="16sp" />
+            android:textSize="16sp" >
+
+            <requestFocus />
+        </EditText>
 
         <TextView
             android:id="@+id/TextView01"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:text="Choose a Unique Secure PIN"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="#f4f4f4"
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/EditText01"
+            android:id="@+id/user_passcode"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginTop="4dp"
             android:ems="10"
             android:hint="Enter Security PIN"
-            android:inputType="textPersonName"
+            android:inputType="textPersonName|numberPassword"
             android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="I will email you reports @"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="#f4f4f4"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/user_email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:ems="10"
-            android:hint="Enter your Email Address"
-            android:inputType="textEmailAddress"
-            android:textSize="16sp" />
-    </LinearLayout>
-
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="bottom"
-        android:columnCount="1" >
 
         <Button
-            android:id="@+id/next02"
-            android:layout_width="92dp"
+            android:id="@+id/deviceAdmin"
+            style="@style/button3"
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="right|bottom"
-            android:layout_marginRight="-8dp"
-            android:onClick="switchView"
-            android:text="Next" />
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="12dp"
+            android:text="Enable Device Admin"
+            android:onClick="enableDeviceAdmin" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="left"
+            android:padding="4dp"
+            android:text="Please Enable Device Administration to access all features of the application, such as Device Wipe, Locking etc."
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#f4f4f4"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/RelativeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnCount="1"
+        android:gravity="bottom" >
 
         <Button
             android:id="@+id/back02"
             android:layout_width="92dp"
             android:layout_height="wrap_content"
-            android:layout_column="0"
-            android:layout_gravity="left|bottom"
-            android:layout_marginLeft="-8dp"
-            android:layout_row="0"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="-6dp"
             android:onClick="switchView"
             android:text="Back" />
-    </GridLayout>
+
+        <Button
+            android:id="@+id/next02"
+            android:layout_width="92dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="-6dp"
+            android:onClick="switchView"
+            android:text="Next" />
+
+    </RelativeLayout>
 
 </LinearLayout>

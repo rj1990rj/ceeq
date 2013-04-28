@@ -1,39 +1,45 @@
 package com.codepalette.ceeq;
 
-import android.app.Activity;
-import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.telephony.SmsManager;
-import android.telephony.TelephonyManager;
-import android.widget.Toast;
 
 public class MessagesManager {
-	SharedPreferences prefs;
-	TelephonyManager tm;
-	Context c;
 	
+	private Informations inf;
+	private SmsManager sms;
+	private Context c;
+	private PreferencesManager pm;
 	public MessagesManager( Context context ) {
 		this.c = context;
-		prefs = PreferenceManager.getDefaultSharedPreferences(c.getApplicationContext());
-		tm = (TelephonyManager)c.getSystemService(Context.TELEPHONY_SERVICE);
+		inf = new Informations( c );
+		pm = new PreferencesManager(c);
+		sms = SmsManager.getDefault();
 		
 	}
 	
-	public void sendMessage( ) {
-	        SmsManager sms = SmsManager.getDefault();
-	        sms.sendTextMessage( prefs.getString("emergencyNumber", "5556"), null, createEmergencyMessage( ), null, null);        
-	    }
-	
-	public String createEmergencyMessage( ){	
-		return prefs.getString("emergencyMessage", "The Phone has been lost or either its SIM has changed, this are new SIM details")+"\n"+
-			"New Sim Number : "+ tm.getSimSerialNumber()+"\n"+
-			"New Sim Operator : "+ tm.getNetworkOperatorName()+"\n"+
-			"New Sim Subscriber Id : "+ tm.getSubscriberId()+"\n";
+	public void sendEmergencyMessage( ) {
+        String emergencyNumber = pm.getString("emergencyNumber");
+        sms.sendTextMessage( emergencyNumber, null, inf.createEmergencyMessage(), null, null);        
 	}
 	
+	public void sendMessage( String deliverTo, int type ) {
+	        switch( type ){
+	        case 1:
+	        	sms.sendTextMessage( deliverTo, null, inf.createEmergencyMessage(), null, null);        
+	        	break;
+	        case 2:
+	        	//sms.sendTextMessage( emergencyNumber, null, text, null, null);        
+	        	break;
+	        case 3:        
+	        	break;
+	        }
+	}
+
+	  public void sendMessage( String text ) {
+		  sms.sendTextMessage( pm.getString("emergencyNumber"), null, text, null, null);        
+	  }
+	  
+	  public void sendMessage( String deliverTo , String text) {
+	      sms.sendTextMessage( deliverTo, null, text, null, null);        
+  }
 }

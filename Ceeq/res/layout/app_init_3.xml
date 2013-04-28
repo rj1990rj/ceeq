@@ -8,7 +8,7 @@
 
     <GridLayout
         android:layout_width="match_parent"
-        android:layout_height="72dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/ic_tab_2"
         android:columnCount="1"
         android:orientation="horizontal" >
@@ -23,14 +23,13 @@
             android:text=" Emergency Buddy "
             android:textColor="#ee0033"
             android:textSize="20sp" />
-
     </GridLayout>
 
     <LinearLayout
         android:id="@+id/LinearLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
         android:gravity="bottom"
         android:orientation="vertical"
         android:padding="8dp" >
@@ -97,30 +96,32 @@
             android:layout_height="15dp" />
     </LinearLayout>
 
-    <GridLayout
+    <RelativeLayout
+        android:id="@+id/RelativeLayout1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:columnCount="1" >
-
-        <Button
-            android:id="@+id/next03"
-            android:layout_width="92dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right|bottom"
-            android:layout_marginRight="-8dp"
-            android:onClick="switchView"
-            android:text="Next" />
+        android:columnCount="1"
+        android:gravity="bottom" >
 
         <Button
             android:id="@+id/back03"
             android:layout_width="92dp"
             android:layout_height="wrap_content"
-            android:layout_column="0"
-            android:layout_gravity="left|bottom"
-            android:layout_marginLeft="-8dp"
-            android:layout_row="0"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="-6dp"
             android:onClick="switchView"
             android:text="Back" />
-    </GridLayout>
+
+        <Button
+            android:id="@+id/next03"
+            android:layout_width="92dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="-6dp"
+            android:onClick="switchView"
+            android:text="Next" />
+    </RelativeLayout>
 
 </LinearLayout>

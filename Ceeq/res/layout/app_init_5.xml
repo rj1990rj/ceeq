@@ -30,7 +30,7 @@
         android:id="@+id/LinearLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="12dp"
         android:gravity="bottom"
         android:orientation="vertical"
         android:padding="8dp" >
@@ -40,9 +40,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="4dp"
-            android:layout_weight="0.63"
+            android:layout_weight="0.11"
             android:gravity="fill"
-            android:text="Remote Commands are messages which you may send in case your device is lost and when you receive the Emergency Message from the application on SIM changes."
+            android:text="Remote Commands are messages which you may send in case your device is lost."
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="#f4f4f4" />
 
@@ -50,7 +50,7 @@
             android:id="@+id/textView1"
             android:layout_width="273dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="8dp"
             android:text="CEEQ ME"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="#f4f4f4"

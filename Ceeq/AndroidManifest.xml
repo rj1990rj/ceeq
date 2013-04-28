@@ -24,9 +24,10 @@
             android:name="com.codepalette.ceeq.Splash"
             android:label="@string/title_activity_splash"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.splashstyle" >
+            android:theme="@style/Theme.Splash" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -38,7 +39,6 @@
         </activity>
         <activity
             android:name="com.codepalette.ceeq.Help"
-            android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Actionbar" >
             <meta-data
@@ -47,9 +47,8 @@
         </activity>
         <activity
             android:name="com.codepalette.ceeq.Settings"
-            android:label="@string/title_activity_settings"
-            android:theme="@style/android:Theme.Holo.Light" 
-            android:parentActivityName="com.codepalette.ceeq.Home" >
+            android:parentActivityName="com.codepalette.ceeq.Home"
+            android:theme="@style/android:Theme.Holo.Light" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.codepalette.ceeq.Home" />
@@ -58,14 +57,13 @@
             android:name="com.codepalette.ceeq.Initialiser"
             android:label="@string/title_activity_initialiser"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.splashstyle" >
+            android:theme="@style/Theme.Splash" >
         </activity>
         <activity
             android:name="com.codepalette.ceeq.Locker"
             android:label="@string/title_activity_locker" >
         </activity>
 
-        
         <receiver
             android:name="com.codepalette.ceeq.MessageListener"
             android:enabled="true"
@@ -83,13 +81,30 @@
             </intent-filter>
         </receiver>
 
-        
         <service
             android:name="com.codepalette.ceeq.Services"
             android:enabled="true" >
         </service>
 
-        
+        <receiver
+            android:name="com.codepalette.ceeq.DeviceAdminManager"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_DEVICE_ADMIN" >
+            <meta-data
+                android:name="android.app.device_admin"
+                android:resource="@xml/ads" />
+
+            <intent-filter>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.codepalette.ceeq.AlarmService"
+            android:enabled="true"
+            android:exported="true" >
+        </service>
     </application>
 
 </manifest>

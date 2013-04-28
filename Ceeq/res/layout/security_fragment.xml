@@ -4,11 +4,32 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <ScrollView
+	<FrameLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="72dp"
+	    android:layout_gravity="top"
+	    android:background="#cc0033"
+	    android:measureAllChildren="false" >
+
+        <TextView
+            android:id="@+id/headerTextBackup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="roboto"
+            android:text="@string/tabSecurity"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#f4f4f4"
+            android:textSize="42sp"
+            android:textStyle="bold"
+            android:typeface="sans" />
+
+    </FrameLayout>
+    <ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#f4f4f4" >
+        android:background="#fafafa" >
 
         <GridLayout
             android:layout_width="match_parent"
@@ -19,8 +40,9 @@
 
             <Button
                 android:id="@+id/getSecurityInfo"
+                style="@style/button3"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginBottom="4dp"
                 android:layout_row="3"
@@ -30,8 +52,9 @@
 
             <Button
                 android:id="@+id/locateDevice"
+                style="@style/button3"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
                 android:layout_column="0"
                 android:layout_gravity="left|top"
                 android:layout_marginBottom="4dp"
@@ -47,21 +70,24 @@
 
                 <Button
                     android:id="@+id/wipeDevice"
-                    android:layout_width="148dp"
-                    android:layout_height="48dp"
+                    style="@style/button3"
+                    android:layout_width="150dp"
                     android:layout_gravity="right"
                     android:layout_marginBottom="4dp"
+                    android:layout_marginLeft="2dp"
                     android:onClick="securityFragment"
                     android:text="@string/sWipe"
                     android:textColor="#434343" />
 
                 <Button
                     android:id="@+id/lockDevice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="48dp"
+                    style="@style/button3"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
                     android:layout_column="0"
                     android:layout_gravity="left"
                     android:layout_marginBottom="4dp"
+                    android:layout_marginRight="2dp"
                     android:layout_row="0"
                     android:hint="@string/hintLock"
                     android:onClick="securityFragment"
@@ -70,8 +96,9 @@
 
                 <Button
                     android:id="@+id/lostFoundHelp"
+                    style="@style/button3"
                     android:layout_width="match_parent"
-                    android:layout_height="48dp"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginBottom="4dp"
                     android:layout_row="2"

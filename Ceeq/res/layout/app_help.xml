@@ -20,10 +20,31 @@
             android:padding="8dp" >
 
             <TextView
+                android:id="@+id/TextView04"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#cc0033"
+                android:padding="4dp"
+                android:text="GPS and Device Admin"
+                android:textColor="#f4f4f4"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/TextView06"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="2dp"
+                android:gravity="fill"
+                android:text="Switch on GPS, indeed it takes a bit of battery, but it is important for tracking device accurately.\nAlso Device Administration should be allowed so that device could be Remote Wiped, Locked. "
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#434343" />
+
+            <TextView
                 android:id="@+id/TextView05"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#434343"
+                android:layout_marginTop="4dp"
+                android:background="#cc0033"
                 android:padding="4dp"
                 android:text="Remote Commands"
                 android:textColor="#f4f4f4"
@@ -33,7 +54,7 @@
                 android:id="@+id/TextView03"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="0dp"
+                android:layout_marginTop="2dp"
                 android:gravity="fill"
                 android:text="Remote Commands are messages which you may send in case your device is lost and when you receive the Emergency Message from the application on SIM changes."
                 android:textAppearance="?android:attr/textAppearanceSmall"
@@ -124,7 +145,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:background="#434343"
+                android:background="#cc0033"
                 android:padding="4dp"
                 android:text="Device Id"
                 android:textColor="#f4f4f4"
@@ -136,21 +157,11 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="4dp"
                 android:gravity="fill"
-                android:text="You may use your device id to see your data online."
+                android:text="You may use your device id to see your data online, issue remote commands on Ceeq website"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="#434343" />
 
         </LinearLayout>
     </ScrollView>
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:gravity="center_horizontal"
-        android:text="Click outside this box to close it."
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="#f4f4f4" />
 
 </LinearLayout>

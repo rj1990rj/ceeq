@@ -11,7 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="124dp"
         android:layout_gravity="top"
-        android:background="@drawable/topbg"
         android:columnCount="1"
         android:orientation="horizontal" >
 
@@ -91,7 +90,7 @@
             android:layout_width="92dp"
             android:layout_column="0"
             android:layout_gravity="right|bottom"
-            android:layout_marginRight="-8dp"
+            android:layout_marginRight="-6dp"
             android:layout_row="0"
             android:onClick="switchView"
             android:text="Next" />
