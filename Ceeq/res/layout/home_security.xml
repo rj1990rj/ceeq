@@ -4,28 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-	<FrameLayout
-	    android:layout_width="match_parent"
-	    android:layout_height="72dp"
-	    android:layout_gravity="top"
-	    android:background="#cc0033"
-	    android:measureAllChildren="false" >
-
-        <TextView
-            android:id="@+id/headerTextBackup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="roboto"
-            android:text="@string/tabSecurity"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#f4f4f4"
-            android:textSize="42sp"
-            android:textStyle="bold"
-            android:typeface="sans" />
-
-    </FrameLayout>
-    <ScrollView
+    <ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -47,8 +26,7 @@
                 android:layout_marginBottom="4dp"
                 android:layout_row="3"
                 android:onClick="securityFragment"
-                android:text="@string/sInfo"
-                android:textColor="#434343" />
+                android:text="@string/sInfo" />
 
             <Button
                 android:id="@+id/locateDevice"
@@ -60,8 +38,7 @@
                 android:layout_marginBottom="4dp"
                 android:layout_row="4"
                 android:onClick="securityFragment"
-                android:text="@string/sLocate"
-                android:textColor="#434343" />
+                android:text="@string/sLocate" />
 
             <GridLayout
                 android:layout_width="match_parent"
@@ -76,8 +53,7 @@
                     android:layout_marginBottom="4dp"
                     android:layout_marginLeft="2dp"
                     android:onClick="securityFragment"
-                    android:text="@string/sWipe"
-                    android:textColor="#434343" />
+                    android:text="@string/sWipe" />
 
                 <Button
                     android:id="@+id/lockDevice"
@@ -91,8 +67,7 @@
                     android:layout_row="0"
                     android:hint="@string/hintLock"
                     android:onClick="securityFragment"
-                    android:text="@string/sLock"
-                    android:textColor="#434343" />
+                    android:text="@string/sLock" />
 
                 <Button
                     android:id="@+id/lostFoundHelp"
@@ -103,8 +78,7 @@
                     android:layout_marginBottom="4dp"
                     android:layout_row="2"
                     android:onClick="securityFragment"
-                    android:text="@string/sSett"
-                    android:textColor="#434343" />
+                    android:text="@string/sSett" />
 
             </GridLayout>
 

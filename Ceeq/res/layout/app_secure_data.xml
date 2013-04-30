@@ -3,28 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ee0033"
+    android:layout_marginBottom="4dp"
+    android:layout_marginTop="4dp"
     android:orientation="vertical"
     android:padding="0dp" >
-
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/ic_tab_2"
-        android:columnCount="1"
-        android:orientation="horizontal" >
-
-        <Space />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_column="0"
-            android:layout_gravity="center"
-            android:layout_row="0"
-            android:text="Current Device Information"
-            android:textColor="#ee0033"
-            android:textSize="20sp" />
-    </GridLayout>
 
     <ScrollView
         android:id="@+id/scrollView1"
@@ -35,7 +17,6 @@
             android:id="@+id/LinearLayout1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:gravity="bottom"
             android:orientation="vertical"
             android:padding="8dp" >
@@ -46,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:text="Your Name:"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#f4f4f4"
+                android:textColor="#434343"
                 android:textStyle="bold" />
 
             <TextView
@@ -54,7 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#f4f4f4"
+                android:textColor="#434343"
                 android:textStyle="bold" />
 
             <TextView
@@ -63,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:text="Current SIM Number:"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#f4f4f4"
+                android:textColor="#434343"
                 android:textStyle="bold" />
 
             <TextView
@@ -71,7 +52,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#f4f4f4"
+                android:textColor="#434343"
                 android:textStyle="bold" />
 
             <TextView
@@ -80,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:text="Current User IMSI Number:"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#f4f4f4"
+                android:textColor="#434343"
                 android:textStyle="bold" />
 
             <TextView
@@ -88,7 +69,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#f4f4f4"
+                android:textColor="#434343"
                 android:textStyle="bold" />
 
             <TextView
@@ -97,7 +78,7 @@
                 android:layout_height="wrap_content"
                 android:text="Device IEMI Number"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#f4f4f4"
+                android:textColor="#434343"
                 android:textStyle="bold" />
 
             <TextView
@@ -105,7 +86,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#f4f4f4"
+                android:textColor="#434343"
                 android:textStyle="bold" />
 
             <TextView
@@ -114,7 +95,7 @@
                 android:layout_height="wrap_content"
                 android:text="Current Operator"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#f4f4f4"
+                android:textColor="#434343"
                 android:textStyle="bold" />
 
             <TextView
@@ -122,7 +103,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#f4f4f4"
+                android:textColor="#434343"
                 android:textStyle="bold" />
 
             <TextView
@@ -131,7 +112,7 @@
                 android:layout_height="wrap_content"
                 android:text="Operator Country"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#f4f4f4"
+                android:textColor="#434343"
                 android:textStyle="bold" />
 
             <TextView
@@ -139,7 +120,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#f4f4f4"
+                android:textColor="#434343"
                 android:textStyle="bold" />
 
             <TextView
@@ -148,7 +129,7 @@
                 android:layout_height="wrap_content"
                 android:text="Mobile Network Based Location"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#f4f4f4"
+                android:textColor="#434343"
                 android:textStyle="bold" />
 
             <TextView
@@ -156,7 +137,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#f4f4f4"
+                android:textColor="#434343"
                 android:textStyle="bold" />
         </LinearLayout>
 

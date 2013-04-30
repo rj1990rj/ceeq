@@ -3,28 +3,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical" xmlns:android="http://schemas.android.com/apk/res/android">
 
-	<FrameLayout
-	    android:layout_width="match_parent"
-	    android:layout_height="72dp"
-	    android:layout_gravity="top"
-	    android:background="#cc0033"
-	    android:measureAllChildren="false" >
-
-        <TextView
-            android:id="@+id/headerTextBackup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="roboto"
-            android:text="@string/tabBackup"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#f4f4f4"
-            android:textSize="42sp"
-            android:textStyle="bold"
-            android:typeface="sans" />
-
-    </FrameLayout>
-
     <ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="match_parent"
@@ -51,16 +29,6 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/getDataInfo"
-                style="@style/button3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
-                android:onClick="backupFragment"
-                android:text="@string/bInfo"
-                android:textColor="#434343" />
-
-            <Button
                 android:id="@+id/oneClickBackup"
                 style="@style/button3"
                 android:layout_width="match_parent"
@@ -70,8 +38,7 @@
                 android:layout_marginBottom="4dp"
                 android:layout_row="5"
                 android:onClick="backupFragment"
-                android:text="@string/bOneClick"
-                android:textColor="#434343" />
+                android:text="@string/bOneClick" />
 
             <GridLayout
                 android:layout_width="match_parent"
@@ -81,23 +48,21 @@
                 <Button
                     android:id="@+id/backupData"
                     style="@style/button3"
-                    android:layout_width="152dp"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:layout_marginRight="2dp"
                     android:onClick="backupFragment"
-                    android:text="@string/tabBackup"
-                    android:textColor="#434343" />
+                    android:text="@string/tabBackup" />
 
                 <Button
                     android:id="@+id/restoreData"
                     style="@style/button3"
-                    android:layout_width="152dp"
-                    android:layout_gravity="left"
+                    android:layout_width="150dp"
+                    android:layout_gravity="fill_horizontal"
                     android:layout_marginLeft="2dp"
                     android:onClick="backupFragment"
-                    android:text="@string/bRestore"
-                    android:textColor="#434343" />
+                    android:text="@string/bRestore" />
 
             </GridLayout>
 
@@ -108,8 +73,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="4dp"
                 android:onClick="backupFragment"
-                android:text="@string/bDisplay"
-                android:textColor="#434343" />
+                android:text="@string/bDisplay" />
 
             <ToggleButton
                 android:id="@+id/autoBackupToggle"
@@ -121,6 +85,18 @@
                 android:textColor="#434343"
                 android:textOff="OFF"
                 android:textOn="ON" />
+
+            <Button
+                android:id="@+id/getDataInfo"
+                style="@style/button3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_gravity="left|top"
+                android:layout_marginBottom="4dp"
+                android:layout_row="1"
+                android:onClick="backupFragment"
+                android:text="@string/bInfo" />
 
         </GridLayout>
 

@@ -12,45 +12,21 @@
       
   </PreferenceCategory>
    <PreferenceCategory
-      android:title="Backup Storage Location" 
-      android:summary="Choose a new Backup Location or Service" >
-      <ListPreference
-          android:title="Choose a Backup Location"
-          >
-          
-      </ListPreference>
-      
-  </PreferenceCategory>  
-   <PreferenceCategory
-      android:title="Change Emergency Contact" 
-      android:summary="Change Emergency Contact Information">
-      <EditTextPreference
-          android:title="Change Emergency Contact Name"
-          android:dialogTitle="Enter New Emergency Contact Name"
-          android:positiveButtonText="Save"
-          android:negativeButtonText="Cancel" ></EditTextPreference>
-      <EditTextPreference
-          android:title="Change Emergency Contact Number"
-          android:dialogTitle="Enter New Emergency Contact Number"
-          android:positiveButtonText="Save"
-          android:negativeButtonText="Cancel"
-           ></EditTextPreference>
-      <EditTextPreference
-          android:title="Change Emergency Message"
-          android:dialogTitle="New Emergency Message"
-          android:positiveButtonText="Save"
-          android:negativeButtonText="Cancel" ></EditTextPreference>
-      
-  </PreferenceCategory>  
-   <PreferenceCategory
       android:title="Support"
       android:summary="Get Help Online, Mail Us" >
+      <Preference
+          android:title="Email Support" >
+          <intent 
+          android:action="android.intent.action.VIEW"
+      	  android:data="http://ceeq.me/mobile/feedback"/>
+      </Preference>
       <Preference
           android:title="Help" >
           <intent 
           android:action="android.intent.action.VIEW"
       	  android:data="http://ceeq.me/mobile/help"/>
       </Preference>
+      
       <Preference
           android:title="FAQs on Web" >
           <intent 

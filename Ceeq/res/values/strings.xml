@@ -46,6 +46,7 @@
     <string name="saveButton">Save</string>
     <string name="finishButton">Finish</string>
     <string name="closeButton">Close</string>
+    <string name="backupButton">Backup</string>
     
     <string name="termsconditions">Terms &amp; Conditions</string>
     <string name="group_9_about">Group 9 About</string>

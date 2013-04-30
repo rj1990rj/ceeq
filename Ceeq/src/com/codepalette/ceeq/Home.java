@@ -29,7 +29,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Home extends FragmentActivity implements ActionBar.TabListener {
+public class Home extends FragmentActivity {
 	
 	private static String deviceId;
 	public SectionsPagerAdapter mSectionsPagerAdapter;
@@ -47,34 +47,15 @@ public class Home extends FragmentActivity implements ActionBar.TabListener {
 		pm = new PreferencesManager( this );
 		isr = new Initialiser();
 		deviceId = "Your Device ID is : "+pm.getString("DEVICE_ID");
-		setContentView(R.layout.activity_home);
+		setContentView(R.layout.home);
 		
 		pm = new PreferencesManager( this );
 		
-		getActionBar().setDisplayHomeAsUpEnabled(false);
-		
-		final ActionBar actionBar = getActionBar();
-		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-
 		mSectionsPagerAdapter = new SectionsPagerAdapter(
 				getSupportFragmentManager());
 
 		mViewPager = (ViewPager) findViewById(R.id.pager);
 		mViewPager.setAdapter(mSectionsPagerAdapter);
-
-		mViewPager
-				.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
-					@Override
-					public void onPageSelected(int position) {
-						actionBar.setSelectedNavigationItem(position);
-					}
-				});
-
-		for (int i = 0; i < mSectionsPagerAdapter.getCount(); i++) {
-			actionBar.addTab(actionBar.newTab()
-					.setText(mSectionsPagerAdapter.getPageTitle(i))
-					.setTabListener(this));
-		}
 	}
 
 	@Override
@@ -98,7 +79,7 @@ public class Home extends FragmentActivity implements ActionBar.TabListener {
 			this.finish();
 			break;
 		case R.id.menuAbout:
-			builder.setView(inflater.inflate(R.layout.about_dialog,null));
+			builder.setView(inflater.inflate(R.layout.app_about,null));
 			dialog = builder.create();
 			dialog.show();
 			break;
@@ -123,15 +104,12 @@ public class Home extends FragmentActivity implements ActionBar.TabListener {
 	    });
 	}
 	
-	public void homeFragment( View v ){
-		switch ( v.getId()){
-		case R.id.exitApp: 
-			this.finish();
-			break;
-			}
-		}
+	/* Button Actions in Home screen */
+	
 		
 	public void backupFragment( View v ){
+		builder = new AlertDialog.Builder( this );
+		LayoutInflater inflater = this.getLayoutInflater();
 		switch ( v.getId()){
 		case R.id.getDataInfo: 
 			Toast.makeText(this, "Get Data", Toast.LENGTH_SHORT).show();
@@ -142,7 +120,17 @@ public class Home extends FragmentActivity implements ActionBar.TabListener {
 			break;
 			
 		case R.id.backupData:
-			Toast.makeText(this, "Backup Data", Toast.LENGTH_SHORT).show();
+			builder.setTitle("Choose to Backup");
+			builder.setView(inflater.inflate(R.layout.app_backup,null))
+			.setPositiveButton(R.string.backupButton, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+	            }
+					})
+			.setNegativeButton(R.string.cancelButton, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+            		dialog.cancel();
+            	}
+				}).create().show();
 			break;
 			
 		case R.id.restoreData:
@@ -163,7 +151,8 @@ public class Home extends FragmentActivity implements ActionBar.TabListener {
 		ComponentName deviceAdminComponentName = new ComponentName(this, DeviceAdminManager.class);
 		switch ( v.getId()){
 		case R.id.getSecurityInfo:
-			builder.setView(inflater.inflate(R.layout.secure_show,null))
+			builder.setTitle("Current Device Information");
+			builder.setView(inflater.inflate(R.layout.app_secure_data,null))
 			.setNegativeButton(R.string.closeButton, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
             		dialog.cancel();
@@ -183,6 +172,7 @@ public class Home extends FragmentActivity implements ActionBar.TabListener {
 		case R.id.wipeDevice:
 			if(devicePolicyManager.isAdminActive(deviceAdminComponentName))
 			{
+			builder.setTitle("Continue to Wipe");
 			builder.setView(inflater.inflate(R.layout.app_wipe,null))
 			.setPositiveButton(R.string.yesButton, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
@@ -199,7 +189,8 @@ public class Home extends FragmentActivity implements ActionBar.TabListener {
 				enableDeviceAdmin( v );
 			break;
 		case R.id.lostFoundHelp:
-			builder.setView(inflater.inflate(R.layout.app_emergency_change,null))
+			builder.setTitle("Change Emergency Contact");
+			builder.setView(inflater.inflate(R.layout.app_change,null))
 			.setPositiveButton(R.string.saveButton, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
 	            }
@@ -232,23 +223,6 @@ public class Home extends FragmentActivity implements ActionBar.TabListener {
 		intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, deviceAdminComponentName);
 		intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION, "Enabling Device Administration enables all the security features of the application");
 		startActivityForResult(intent,ACTIVATION_REQUEST);
-	}
-
-
-	@Override
-	public void onTabSelected(ActionBar.Tab tab,
-			FragmentTransaction fragmentTransaction) {
-			mViewPager.setCurrentItem(tab.getPosition());
-	}
-
-	@Override
-	public void onTabUnselected(ActionBar.Tab tab,
-			FragmentTransaction fragmentTransaction) {
-	}
-
-	@Override
-	public void onTabReselected(ActionBar.Tab tab,
-			FragmentTransaction fragmentTransaction) {
 	}
 
 	public class SectionsPagerAdapter extends FragmentPagerAdapter {
@@ -303,7 +277,7 @@ public class Home extends FragmentActivity implements ActionBar.TabListener {
 
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.home_fragment,container, false);
+			View rootView = inflater.inflate(R.layout.home_main,container, false);
 			TextView tv = (TextView) rootView.findViewById(R.id.homeDeviceId);
 			tv.setText(deviceId);
 			return rootView;
@@ -317,7 +291,7 @@ public class Home extends FragmentActivity implements ActionBar.TabListener {
 
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.security_fragment,container, false);
+			View rootView = inflater.inflate(R.layout.home_security,container, false);
 //			TextView tv = (TextView)rootView.findViewById(R.id.currentName);
 //			tv.setText(pm.getString("userName"));
 //			tv = (TextView)rootView.findViewById(R.id.currentSIMnumber);
@@ -341,7 +315,7 @@ public class Home extends FragmentActivity implements ActionBar.TabListener {
 		
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.backup_fragment, container, false);
+			View rootView = inflater.inflate(R.layout.home_backup, container, false);
 			return rootView;
 		}
 		

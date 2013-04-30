@@ -12,9 +12,9 @@ public class Splash extends Activity {
 		super.onCreate(savedInstanceState);
 		pm = new PreferencesManager( this );
 		boolean appHasInitialised = pm.getBoolean("appHasInitialised");
-		setContentView(R.layout.splash);
+		setContentView(R.layout.splashscreen);
 		if (!appHasInitialised){
-			setContentView(R.layout.splash);
+			setContentView(R.layout.splashscreen);
 			int secondsDelayed = 1;
 	        new Handler().postDelayed(new Runnable() {
 	        		@Override

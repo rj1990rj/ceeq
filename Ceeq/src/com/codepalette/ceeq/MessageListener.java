@@ -31,18 +31,17 @@ public class MessageListener extends BroadcastReceiver {
 	   
 		if( messageText.contains(pm.getString("userPasscode")))
 		{
-			if(messageText.equals("CEEQ CRY")){
+			if(messageText.contains("CRY")){
 				Intent intent2 = new Intent( context , AlarmService.class);
 				context.startService( intent2 );
 			}
-			else if(messageText.equals("CEEQ NOW")){
+			else if(messageText.contains("NOW")){
 				sms.sendMessage(sender, 3);
 			}
-			else if(messageText.equals("CEEQ ME")){
+			else if(messageText.contains("ME")){
 				sms.sendMessage(sender, 2);
 			}
-			else if(messageText.equals("CEEQ ERASE")){
-				sms.sendMessage(sender, "Device Wiped Successfully.");
+			else if(messageText.contains("ERASE")){
 				dpm.wipeData(0);
 			}
 	 } else

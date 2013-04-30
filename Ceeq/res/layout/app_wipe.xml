@@ -2,27 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ee0033"
+    android:layout_marginBottom="4dp"
+    android:layout_marginTop="4dp"
     android:orientation="vertical" >
-
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/ic_tab_2"
-        android:columnCount="1"
-        android:orientation="horizontal" >
-
-        <Space />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_column="0"
-            android:layout_gravity="center"
-            android:layout_row="0"
-            android:text="Do you want to continue"
-            android:textColor="#ee0033"
-            android:textSize="20sp" />
-    </GridLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -39,7 +21,7 @@
             android:padding="8dp"
             android:text="This will erase all your contacts, messages and settings"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="#f4f4f4"
+            android:textColor="#505050"
             android:textStyle="bold" />
 
         <CheckBox
@@ -51,8 +33,7 @@
             android:gravity="center_horizontal"
             android:padding="4dp"
             android:text="Wipe External Storage"
-            android:textColor="#f4f4f4"
-            android:textStyle="italic" />
+            android:textColor="#505050" />
 
     </LinearLayout>
 

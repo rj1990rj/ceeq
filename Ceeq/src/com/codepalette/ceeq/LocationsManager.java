@@ -1,98 +1,111 @@
 package com.codepalette.ceeq;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import android.content.Context;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.widget.Toast;
 
 public class LocationsManager {
 	
 	LocationManager lm;
 	Location location;
 	Context context;
+	Informations inf;
+	Timer gpsTimer; 	
 	long minTime = 600000;
+	long minDistance = 50;
 	public LocationsManager( Context context ){
 		this.context = context;
 		lm = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
+		inf = new Informations( context );
+		gpsTimer = new Timer(); ;
 	}
+		
+	public void startRecording() {
+		
+		    	boolean gps_recorder_running;
+		        gpsTimer.cancel();
 
-	LocationListener locationListener = new LocationListener()
-		{
-	    	public void onLocationChanged(Location location) {
-	    	}
 
-	    	public void onStatusChanged(String provider, int status, Bundle extras) {}
 
-	    	public void onProviderEnabled(String provider) {}
+		        long checkInterval = minTime;;
+		        long minDistance = this.minDistance;
 
-	    	public void onProviderDisabled(String provider) {}
-		};
-//		private Location getBestLocation() {
-//		    Location gpslocation = getLocationByProvider(LocationManager.GPS_PROVIDER);
-//		    Location networkLocation = getLocationByProvider(LocationManager.NETWORK_PROVIDER);
+		        LocationManager locationManager = (LocationManager) context.getApplicationContext().getSystemService(Context.LOCATION_SERVICE);
+
+		        for (String s : locationManager.getAllProviders()) {
+		            locationManager.requestLocationUpdates(s, checkInterval,
+		                    minDistance, new LocationListener() {
+
+		                        @Override
+		                        public void onStatusChanged(String provider,
+		                                int status, Bundle extras) {
+
+		                        }
+
+		                        @Override
+		                        public void onProviderEnabled(String provider) {
+
+		                        }
+
+		                        @Override
+		                        public void onProviderDisabled(String provider) {
+
+		                        }
+
+		                        @Override
+		                        public void onLocationChanged(Location location) {
+		                            if (location.getProvider().equals( LocationManager.GPS_PROVIDER)) {
+		                         //       doLocationUpdate(location, true);
+		                            }
+		                        }
+		                    });
+
+		            gps_recorder_running = true;
+		        }
+
+		        gpsTimer.scheduleAtFixedRate(new TimerTask() {
+
+		            @Override
+		            public void run() {
+		                Location location = inf.getBestLocation();
+		               // doLocationUpdate(location, false);
+
+		            }
+		        }, 0, checkInterval);
+
+		    }
+
+//		    public void doLocationUpdate(Location l, boolean force) {
 //
+//		        long minDistance = this.minDistance;
+//		        
+//		        if (l == null) {
+//		            if (force)
+//		            return;
+//		        }
+//		        
+//		        if (lastLocation != null) {
+//		            float distance = l.distanceTo( lastLocation );
 //
-//		    //if we have only one location available, the choice is easy
-//		    if (gpslocation == null) {
-//		        Log.d(TAG, "No GPS Location available.");
-//		        return networkLocation;
-//		    }
-//		    if (networkLocation == null) {
-//		        Log.d(TAG, "No Network Location available");
-//		        return gpslocation;
-//		    }
+//		            if (l.distanceTo(lastLocation) < minDistance && !force) {
+//		            	return;
+//		            }
 //
-//		    //a locationupdate is considered 'old' if its older than the configured update interval. this means, we didn't get a
-//		    //update from this provider since the last check
-//		    long old = System.currentTimeMillis() - getGPSCheckMilliSecsFromPrefs();
-//		    boolean gpsIsOld = (gpslocation.getTime() < old);
-//		    boolean networkIsOld = (networkLocation.getTime() < old);
+//		            if (l.getAccuracy() >= lastLocation.getAccuracy()&& l.distanceTo(lastLocation) < l.getAccuracy() && !force) {
+//		                return;
+//		            }
 //
-//		    //gps is current and available, gps is better than network
-//		    if (!gpsIsOld) {
-//		        Log.d(TAG, "Returning current GPS Location");
-//		        return gpslocation;
-//		    }
-//
-//		    //gps is old, we can't trust it. use network location
-//		    if (!networkIsOld) {
-//		        Log.d(TAG, "GPS is old, Network is current, returning network");
-//		        return networkLocation;
-//		    }
-//
-//		    // both are old return the newer of those two
-//		    if (gpslocation.getTime() > networkLocation.getTime()) {
-//		        Log.d(TAG, "Both are old, returning gps(newer)");
-//		        return gpslocation;
-//		    } else {
-//		        Log.d(TAG, "Both are old, returning network(newer)");
-//		        return networkLocation;
-//		    }
-//		}
-//
-//		/**
-//		 * get the last known location from a specific provider (network/gps)
-//		 */
-//		private Location getLocationByProvider(String provider) {
-//		    Location location = null;
-//		    if (!isProviderSupported(provider)) {
-//		        return null;
-//		    }
-//		    LocationManager locationManager = (LocationManager) getApplicationContext()
-//		            .getSystemService(Context.LOCATION_SERVICE);
-//
-//		    try {
-//		        if (locationManager.isProviderEnabled(provider)) {
-//
-//		            location = locationManager.getLastKnownLocation(provider);
+//		            if (l.getTime() <= lastprovidertimestamp && !force) {
+//		                return;
+//		            }
 //
 //		        }
-//		    } catch (IllegalArgumentException e) {
-//		        Log.d(TAG, "Cannot acces Provider " + provider);
+//		        //upload/store your location here
 //		    }
-//		    return location;
-//		}
-
-	  //lm.requestLocationUpdates( LocationManager.NETWORK_PROVIDER, 0, 0, locationListener );
 }

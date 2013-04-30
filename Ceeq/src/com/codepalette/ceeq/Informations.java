@@ -20,6 +20,7 @@ public class Informations{
 	private TelephonyManager tm;
 	private LocationManager lm;
 	private PreferencesManager pm;
+	private int minTime = 60000;
 	
 		public Informations( Context context ){
 			this.context = context;
@@ -58,6 +59,59 @@ public class Informations{
 
 		public String randomString(){
 			return Long.toHexString(Double.doubleToLongBits(Math.random()));
+		}
+		
+		public Location getBestLocation() {
+			
+		    Location gpsLocation = getLocationByProvider(LocationManager.GPS_PROVIDER);
+		    Location networkLocation = getLocationByProvider(LocationManager.NETWORK_PROVIDER);
+
+
+		    if (gpsLocation == null) {
+		        return networkLocation;
+		    }
+		    if (networkLocation == null) {
+		        return gpsLocation;
+		    }
+
+		    long old = System.currentTimeMillis() - minTime;
+		    boolean gpsIsOld = (gpsLocation.getTime() < old);
+		    boolean networkIsOld = (networkLocation.getTime() < old);
+
+		    if (!gpsIsOld) {
+		        return gpsLocation;
+		    }
+
+		    if (!networkIsOld) {
+		        return networkLocation;
+		    }
+
+		    if (gpsLocation.getTime() > networkLocation.getTime()) {
+		        return gpsLocation;
+		    } else {
+		        return networkLocation;
+		    }
+		}
+
+
+		public Location getLocationByProvider(String provider) {
+		    Location location = null;
+		    
+		    //if ( !lm.isProviderSupported(provider) ) {
+		    //    return null;
+		    //}
+		    LocationManager locationManager = (LocationManager) context.getApplicationContext()
+		            .getSystemService(Context.LOCATION_SERVICE);
+
+		    try {
+		        if (locationManager.isProviderEnabled(provider)) {
+
+		            location = locationManager.getLastKnownLocation(provider);
+
+		        }
+		    } catch (IllegalArgumentException e) {
+		    }
+		    return location;
 		}
 		
 		public String createEmergencyMessage( ){	

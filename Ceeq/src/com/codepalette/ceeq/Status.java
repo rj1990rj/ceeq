@@ -25,9 +25,8 @@ public class Status {
 			break;
 		case R.id.remoteAccessStatus:
 			break;
-		case R.id.exitApp:
-			break;
-		}
+			}
+
 	}
 	
 	public boolean setStatus( int status ){
